@@ -1,18 +1,18 @@
-<div class="box">
-  <div class="box-header"></div>
+<div class="container">
+  <h2>EPub Searcher</h2>
   <form #inputForm="ngForm">
     <div class="box-body">
       <div class="form-group">
         <label for="inputFolder">Source Folder: </label>
-        <input type="text" name="inputFolder" [(ngModel)]="sourcePath" required />
+        <input type="text" id="inputFolder" name="inputFolder" class="form-control" placeholder="Enter path to directory" [(ngModel)]="sourcePath" required />
+        <span class="description-fields">Enter the full path to the directory that holds your .epub files. Subdirectories will be searched as well.</span>
       </div>
       <div class="form-group">
         <label for="searchParams">Search Parameters: </label>
-        <input type="text" name="searchParams" [(ngModel)]="searchParams" required />
+        <input type="text" id="searchParams" name="searchParams" class="form-control" placeholder="Enter desired search parameters" [(ngModel)]="searchParams" required />
+        <span class="description-fields">Enter words and phrases to search for. Multiple phrases can be separated by ';'. The title of a book will only be returned by this search if <strong>all</strong> search phrases match the content.</span>
       </div>
     </div>
+    <button type="submit" class="btn btn-primary" (click)="SubmitInformationToBackend()" [disabled]="inputForm.invalid">Search</button>
   </form>
-  <div class="box-footer">
-    <button class="btn btn-primary" (click)="SubmitInformationToBackend()" [disabled]="inputForm.invalid">Search</button>
-  </div>
 </div>
